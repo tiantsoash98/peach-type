@@ -1,0 +1,1 @@
+export const useLoaded = () => useState("isLoaded", () => false)

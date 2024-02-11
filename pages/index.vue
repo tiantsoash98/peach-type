@@ -25,6 +25,7 @@ import { Application } from '@splinetool/runtime';
 
 // template ref
 const canvas = ref(null)
+const loaded = useLoaded()
 
 // spline state
 const state = reactive({
@@ -41,6 +42,7 @@ onMounted(async () =>{
     state.spline.app = app;
     state.spline.isLoaded = true;
     canvas.value.style="width:100%; height:100%;"
+    loaded.value = true
 })
 </script>
 
