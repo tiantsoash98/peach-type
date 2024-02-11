@@ -2,8 +2,8 @@
     <div class="h-dvh">
         <div class="h-full w-full max-w-4xl mx-auto flex flex-col justify-center">
             <div class="w-full relative">
-                <div class="star absolute z-10 w-[20rem] h-[20rem] top-[7%] right-0 flex justify-center items-center translate-x-1/2 pointer-events-none">
-                    <canvas ref="canvas"/>
+                <div class="star absolute z-10 w-[20rem] h-[20rem] top-[7%] right-0 flex justify-center items-center translate-x-1/2">
+                    <canvas ref="canvas" class=" hover:scale-110 transition-transform duration-300 ease-out"/>
                 </div>
                 <div class="text-4xl peach">Peach</div>
                 <div class="flex justify-between w-[81%]">
@@ -87,7 +87,7 @@ const animateEnter = () => {
             ease: "bounce.out"
         },
     })
-    .from('.char', { scaleY: 0, opacity: 0, stagger: 0.1, delay: 1.3 })
+    .from('.char', { scaleY: 0, opacity: 0, stagger: 0.1, delay: 1.5 })
     .from('.color-char--wrapper', { opacity: 0, stagger: 0.1, duration: 1 }, 3.5)
     .from('.nature-char--wrapper', { opacity: 0, stagger: 0.1, duration: 1 }, 4.5)
     .fromTo('.tag', { 
@@ -96,10 +96,10 @@ const animateEnter = () => {
         clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', 
         duration: 1.3, 
         ease: "power3.inOut",
-        stagger: 0.5
+        stagger: 0.7
     }, '<+0.6s')
     .from('.star', { opacity: 0, scale: 0.5, ease: "elastic.out", duration: 3 }, '+=0.6s')
-    .from('.project', { opacity: 0, duration: 1 })
+    .from('.project', { opacity: 0, duration: 1,  ease: "power4.out" })
 }
 </script>
 
