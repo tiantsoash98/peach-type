@@ -8,10 +8,11 @@
                     <div class="uppercase">Nature's soft touch</div>
                 </div>
                 <div class="text-4xl text-end">fuzz</div>
-                <div class="absolute h-full top-0 right-0 flex justify-center items-center translate-x-1/2">
-                    <canvas ref="canvas" class="scale-50"/>
+                <div class="absolute h-full top-0 right-0 flex justify-center items-center translate-x-1/2 pointer-events-none">
+                    <canvas ref="canvas" class="scale-[.4]"/>
                 </div>
-                
+                <Tag text="#ffbe98" class="absolute top-12 -left-5 -rotate-6"/>
+                <Tag text="peach" class="absolute bottom-[4rem] right-[7rem] rotate-6"/>
             </div>
         </div>
     </div>
@@ -32,7 +33,7 @@ const state = reactive({
         app: null,
         isLoaded: false,
     },
-});
+})
 
 onMounted(async () =>{
     const app = new Application(canvas.value);
