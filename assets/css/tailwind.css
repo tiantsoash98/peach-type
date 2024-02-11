@@ -26,10 +26,7 @@
     *::before, 
     *::after, 
     html {
-        @apply relative antialiased overscroll-none;
-        font-family: "Cabinet Grotesk", system-ui, sans-serif;
-        font-size: 20px;
-        font-weight: 700;
+        @apply relative antialiased overscroll-none font-cabinet text-[1.4vw] sm:text-[1.08vw] font-bold;
     }
 
     ::selection{
