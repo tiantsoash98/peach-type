@@ -31,10 +31,12 @@
         font-size: 20px;
         font-weight: 700;
     }
-    body {
-        @apply bg-peach-light text-peach-dark;
+
+    ::selection{
+        @apply bg-peach text-peach-light;
     }
-    h1 {
-        @apply text-4xl;
+
+    body {
+        @apply bg-peach-light text-peach-dark overflow-hidden;
     }
 }

@@ -3,6 +3,9 @@ export default {
   content: [],
   theme: {
     extend: {
+      container: {
+        center: true,
+      },
       colors: {
         'peach': {
           light: '#FFF8F5',
@@ -14,10 +17,10 @@ export default {
         cabinet: ['"Cabinet Grotesk"', 'system-ui', 'Roboto']
       },
       fontSize: {
-        '4xl': ['16.5rem', {
+        '4xl': ['18.25rem', {
           lineHeight: '0.7',
           letterSpacing: '-0.05em',
-          fontWeight: '700',
+          fontWeight: '800',
         }],
       }
     },
