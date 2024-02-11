@@ -3,6 +3,9 @@ export default {
   content: [],
   theme: {
     extend: {
+      animation: {
+        'spin-slow': 'spin 4s linear infinite',
+      },
       container: {
         center: true,
       },

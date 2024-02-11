@@ -3,7 +3,7 @@
         <div class="container">
             <div class="flex justify-between items-center">
                 <span class="text-xl">Welcome</span>
-                <span class="text-xl">Info</span>
+                <!-- <span class="text-xl">Info</span> -->
             </div>
         </div>
     </header>

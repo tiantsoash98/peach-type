@@ -13,6 +13,7 @@
     "@splinetool/runtime": "^1.0.51",
     "gsap": "^3.12.5",
     "nuxt": "^3.10.1",
+    "split-type": "^0.3.4",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5"
   },
