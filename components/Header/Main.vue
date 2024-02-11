@@ -1,9 +1,9 @@
 <template>
-    <header class="w-full py-4">
+    <header class="w-full py-10">
         <div class="container mx-auto">
             <div class="flex justify-between items-center">
-                <span>Welcome</span>
-                <span>Info</span>
+                <span class="text-lg">Welcome</span>
+                <span class="text-lg">Info</span>
             </div>
         </div>
     </header>
