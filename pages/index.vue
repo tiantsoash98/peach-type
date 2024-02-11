@@ -89,17 +89,17 @@ const animateEnter = () => {
     })
     .from('.char', { scaleY: 0, opacity: 0, stagger: 0.1, delay: 1.3 })
     .from('.color-char--wrapper', { opacity: 0, stagger: 0.1, duration: 1 }, 3.5)
-    .from('.nature-char--wrapper', { opacity: 0, stagger: 0.1, duration: 1 }, '+=0.3s')
+    .from('.nature-char--wrapper', { opacity: 0, stagger: 0.1, duration: 1 }, 4.5)
     .fromTo('.tag', { 
         clipPath: 'polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)' 
     }, { 
         clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', 
         duration: 1.3, 
-        ease: "power4.inOut",
-        stagger: 0.4
+        ease: "power3.inOut",
+        stagger: 0.5
     }, '<+0.6s')
     .from('.star', { opacity: 0, scale: 0.5, ease: "elastic.out", duration: 3 }, '+=0.6s')
-    
+    .from('.project', { opacity: 0, duration: 1 })
 }
 </script>
 
