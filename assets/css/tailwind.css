@@ -1,0 +1,35 @@
+@font-face {
+    font-family:  'Cabinet Grotesk';
+    src: url(/fonts/CabinetGrotesk-Bold.woff2) format("woff2"),
+        url(/fonts/CabinetGrotesk-Bold.woff) format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family:  'Cabinet Grotesk';
+    src: url(/fonts/CabinetGrotesk-Extrabold.woff2) format("woff2"),
+        url(/fonts/CabinetGrotesk-Extrabold.woff) format("woff");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    *, 
+    *::before, 
+    *::after, 
+    html {
+        @apply relative antialiased overscroll-none;
+        font-family: "Cabinet Grotesk", system-ui, sans-serif;
+        font-weight: 700;
+    }
+    body {
+        @apply bg-peach-light text-peach-dark;
+    }
+}
