@@ -1,20 +1,22 @@
 <template>
-    <div class="h-dvh">
+    <div class="h-dvh" id="draggable">
+        <Tag text="Welcome" containerId="draggable" class="tag absolute top-10 left-[10%] -rotate-[5deg] text-xl"/>
         <div class="h-full w-full max-w-4xl mx-auto flex flex-col justify-center">
             <div class="w-full relative">
                 <div class="star absolute z-10 w-[20rem] h-[20rem] top-[7%] right-0 flex justify-center items-center translate-x-1/2">
                     <canvas ref="canvas" class=" hover:scale-110 transition-transform duration-300 ease-out"/>
                 </div>
-                <div class="text-4xl peach">Peach</div>
+                <div class="text-4xl peach" id="peach">Peach</div>
                 <div class="flex justify-between w-[81%]">
                     <div class="uppercase pl-3 color overflow-hidden">Color of the year 2024</div>
                     <div class="uppercase nature overflow-hidden">Nature's soft touch</div>
                 </div>
-                <div class="text-4xl text-end fuzz">fuzz</div>
-                <Tag text="#ffbe98" class="tag absolute top-12 -left-5 -rotate-6 "/>
-                <Tag text="peach" class="tag absolute bottom-[4rem] right-[7rem] rotate-6"/>
+                <div class="text-4xl text-end fuzz" id="fuzz">fuzz</div>
+                <Tag text="#ffbe98" containerId="draggable" class="tag absolute top-12 -left-5 -rotate-6 "/>
+                <Tag text="peach" containerId="draggable" class="tag absolute bottom-[4rem] right-[7rem] rotate-6"/>
             </div>
         </div>
+        
     </div>
 </template>
 
@@ -124,8 +126,7 @@ const animateEnter = () => {
     let duration = 2
     let stagger = 0.05
     let yPercent = 5
-    let yPercentIncrement = 5
-
+    let yPercentIncrement = 10
     document.querySelectorAll('.peach-char')
         .forEach(function(item){
             tL.from(item, { rotateX: '90deg', opacity: 0, yPercent: yPercent, duration: duration, delay: delay}, 0)
@@ -142,16 +143,16 @@ const animateEnter = () => {
             yPercent += item.dataset.index * yPercentIncrement
         })
     
-    tL.from('.color-char--wrapper', { opacity: 0, yPercent: 100, stagger: 0.08, duration: 1 }, delay + 1)
-    tL.from('.nature-char--wrapper', { opacity: 0, yPercent: 100, stagger: 0.08, duration: 1 }, '<+1s')
-    tL.from('.star', { opacity: 0, scale: 0.5, ease: "elastic.out", duration: 3 }, '+=0.6s')
+    tL.from('.color-char--wrapper', { opacity: 0, yPercent: 100, stagger: 0.08, duration: 1 }, delay)
+    tL.from('.nature-char--wrapper', { opacity: 0, yPercent: 100, stagger: 0.08, duration: 1 }, '<+0.3s')
+    tL.from('.star', { opacity: 0, scale: 0.5, ease: "elastic.out", duration: 3 }, '<+0.6s')
     tL.fromTo('.tag', { 
         clipPath: 'polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)' 
     }, { 
         clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', 
         duration: 0.8, 
         ease: "power4.inOut",
-        stagger: 0.5
+        stagger: 0.1
     },'<+1s')
 
     return tL
@@ -175,7 +176,7 @@ const animateExit = () => {
         animation-fill-mode: both;
     }
 }
-
+// https://www.tutorialspoint.com/css/css_animation_swing.htm
 @keyframes swing { 
     20% { transform: rotate(10deg); } 
     40% { transform: rotate(-10deg); } 
