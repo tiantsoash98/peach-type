@@ -37,3 +37,12 @@
         @apply bg-peach-light text-peach-dark overflow-hidden;
     }
 }
+
+@layer components {
+    .magnetic {
+        margin: -100px;
+        padding: 100px;
+        display: inline-block;
+        border-radius: 50%;
+    }
+}

@@ -30,6 +30,7 @@ import SplitType from 'split-type';
 // template ref
 const canvas = ref(null)
 const loaded = useLoaded()
+const magnetic = useMagnetic()
 
 // spline state
 const state = reactive({
@@ -48,10 +49,12 @@ onMounted(async () =>{
     canvas.value.style="width:100%; height:100%;"
     loaded.value = true
     animateEnter()
+    magnetic.magnetize()
 })
 
 onBeforeUnmount(() => {
     animateExit()
+    magnetic.resetMagnetize()
 })
 
 const animateEnter = () => {
