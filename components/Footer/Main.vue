@@ -3,6 +3,7 @@
         <div class="container">
             <div class="flex justify-between items-center">
                 <FooterHashtags/>
+                <span class="text-sm project">(Tags are draggable around the page)</span>
                 <span class="text-base project">Project by <a href="https://www.instagram.com/tiantsoa_sh/" target="_blank">Tiantsoa</a></span>
             </div>
         </div>

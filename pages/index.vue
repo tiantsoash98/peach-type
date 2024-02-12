@@ -1,5 +1,6 @@
 <template>
     <div class="h-dvh" id="draggable">
+        <Tag text="Welcome" containerId="draggable" class="tag absolute top-10 left-[10%] -rotate-[5deg] text-xl"/>
         <div class="h-full w-full max-w-4xl mx-auto flex flex-col justify-center">
             <div class="w-full relative">
                 <div class="star absolute z-10 w-[20rem] h-[20rem] top-[7%] right-0 flex justify-center items-center translate-x-1/2">
@@ -15,6 +16,7 @@
                 <Tag text="peach" containerId="draggable" class="tag absolute bottom-[4rem] right-[7rem] rotate-6"/>
             </div>
         </div>
+        
     </div>
 </template>
 
@@ -138,16 +140,16 @@ const animateEnter = () => {
             yPercent += item.dataset.index * yPercentIncrement
         })
     
-    tL.from('.color-char--wrapper', { opacity: 0, yPercent: 100, stagger: 0.08, duration: 1 }, delay + 1)
-    tL.from('.nature-char--wrapper', { opacity: 0, yPercent: 100, stagger: 0.08, duration: 1 }, '<+1s')
-    tL.from('.star', { opacity: 0, scale: 0.5, ease: "elastic.out", duration: 3 }, '+=0.6s')
+    tL.from('.color-char--wrapper', { opacity: 0, yPercent: 100, stagger: 0.08, duration: 1 }, delay)
+    tL.from('.nature-char--wrapper', { opacity: 0, yPercent: 100, stagger: 0.08, duration: 1 }, '<+0.3s')
+    tL.from('.star', { opacity: 0, scale: 0.5, ease: "elastic.out", duration: 3 }, '<+0.6s')
     tL.fromTo('.tag', { 
         clipPath: 'polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)' 
     }, { 
         clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', 
         duration: 0.8, 
         ease: "power4.inOut",
-        stagger: 0.5
+        stagger: 0.1
     },'<+1s')
 
     return tL

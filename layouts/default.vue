@@ -1,10 +1,8 @@
 <template>
     <div>
         <PageLoader></PageLoader>
-        
-        <HeaderMain/>
 
-        <main>
+        <main id="page">
             <slot />
         </main>
 
