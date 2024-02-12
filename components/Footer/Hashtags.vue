@@ -1,5 +1,5 @@
 <template>
-    <div class="relative overflow-hidden">
+    <div class="hashtags relative overflow-hidden">
         <a href="https://www.facebook.com/photo/?fbid=760118536170062&set=a.553403420174909" target="_blank">
             <div class="hashtag__wrapper">
                 <span class="mr-12">#peachtype</span>

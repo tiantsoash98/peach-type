@@ -1,5 +1,5 @@
 <template>
-    <header class="fixed top-0 left-0 w-full py-8">
+    <header class="header fixed top-0 left-0 w-full py-8">
         <div class="container">
             <div class="flex justify-between items-center">
                 <span class="text-xl">Welcome</span>

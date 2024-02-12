@@ -112,9 +112,13 @@ const animateEnter = () => {
             ease: "power4.out"
         },
     })
+
+    let delay = 1.5
+
+    tL.from('.hashtags', { opacity: 0, yPercent: 150, duration: 1 }, delay)
+    tL.from('.project', { opacity: 0, yPercent: 150, duration: 1 }, delay)
     
     let duration = 2
-    let delay = 1.5
     let stagger = 0.05
     let yPercent = 5
     let yPercentIncrement = 5
@@ -134,8 +138,8 @@ const animateEnter = () => {
             yPercent += item.dataset.index * yPercentIncrement
         })
     
-    tL.from('.color-char--wrapper', { opacity: 0, stagger: 0.1, duration: 1 }, delay + 1)
-    tL.from('.nature-char--wrapper', { opacity: 0, stagger: 0.1, duration: 1 }, '<+1s')
+    tL.from('.color-char--wrapper', { opacity: 0, yPercent: 100, stagger: 0.08, duration: 1 }, delay + 1)
+    tL.from('.nature-char--wrapper', { opacity: 0, yPercent: 100, stagger: 0.08, duration: 1 }, '<+1s')
     tL.from('.star', { opacity: 0, scale: 0.5, ease: "elastic.out", duration: 3 }, '+=0.6s')
     tL.fromTo('.tag', { 
         clipPath: 'polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)' 
@@ -145,7 +149,6 @@ const animateEnter = () => {
         ease: "power4.inOut",
         stagger: 0.5
     },'<+1s')
-    tL.from('.project', { opacity: 0, duration: 1,  ease: "power4.out" })
 
     return tL
 }
@@ -164,7 +167,7 @@ const animateExit = () => {
 <style lang="scss">
 .peach-char {
     &[data-text="e"]{
-        animation: swing 10s infinite 4s;
+        animation: swing 10s infinite 10s;
         animation-fill-mode: both;
     }
 }
