@@ -3,6 +3,7 @@
         <div class="container">
             <div class="flex justify-end items-center">
                 <div class="magnetic text-xl">Peach fuzz</div>
+                <Tag text="Welcome" containerId="page" class="tag absolute top-0 left-0 -rotate-[5deg] text-xl"/>
             </div>
         </div>
     </header>
