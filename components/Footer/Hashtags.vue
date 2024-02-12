@@ -22,9 +22,18 @@
 <style lang="scss" scoped>
 .hashtag {
     &__wrapper {
-        animation: hashtag-loop 7s  linear infinite;
+        animation: hashtag-loop 7s linear infinite;
+        -webkit-animation: hashtag-loop 7s linear infinite; 
     }
 
+    @-webkit-keyframes hashtag-loop { 
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
     @keyframes hashtag-loop {
         0% {
             transform: translateX(0%);
