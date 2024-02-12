@@ -1,6 +1,9 @@
 <template>
     <div>
-        <PageLoader></PageLoader>
+        <PageMobile/>
+        <PageLoader/>
+
+        <HeaderMain />
 
         <main id="page">
             <slot />
