@@ -28,6 +28,7 @@ import SplitType from 'split-type';
 // template ref
 const canvas = ref(null)
 const loaded = useLoaded()
+const magnetic = useMagnetic()
 
 // spline state
 const state = reactive({
@@ -46,10 +47,12 @@ onMounted(async () =>{
     canvas.value.style="width:100%; height:100%;"
     loaded.value = true
     animateEnter()
+    magnetic.magnetize()
 })
 
 onBeforeUnmount(() => {
     animateExit()
+    magnetic.resetMagnetize()
 })
 
 const animateEnter = () => {
@@ -122,6 +125,7 @@ const animateEnter = () => {
     let stagger = 0.05
     let yPercent = 5
     let yPercentIncrement = 5
+
     document.querySelectorAll('.peach-char')
         .forEach(function(item){
             tL.from(item, { rotateX: '90deg', opacity: 0, yPercent: yPercent, duration: duration, delay: delay}, 0)
