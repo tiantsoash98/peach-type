@@ -94,9 +94,9 @@ const animateEnter = () => {
         clipPath: 'polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)' 
     }, { 
         clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', 
-        duration: 1.3, 
+        duration: 0.6, 
         ease: "power3.inOut",
-        stagger: 0.7
+        stagger: 0.5
     }, '<+0.6s')
     .from('.star', { opacity: 0, scale: 0.5, ease: "elastic.out", duration: 3 }, '+=0.6s')
     .from('.project', { opacity: 0, duration: 1,  ease: "power4.out" })
