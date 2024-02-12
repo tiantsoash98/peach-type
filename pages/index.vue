@@ -55,11 +55,6 @@ onMounted(async () =>{
     magnetic.magnetize()
 })
 
-onBeforeUnmount(() => {
-    animateExit()
-    magnetic.resetMagnetize()
-})
-
 const animateEnter = () => {
     SplitType.create('.peach', 
     {
@@ -148,14 +143,14 @@ const animateEnter = () => {
     
     tL.from('.color-char--wrapper', { opacity: 0, yPercent: 100, stagger: 0.08, duration: 1 }, delay)
     tL.from('.nature-char--wrapper', { opacity: 0, yPercent: 100, stagger: 0.08, duration: 1 }, '<+0.3s')
-    tL.from('.star', { opacity: 0, scale: 0.5, ease: "elastic.out", duration: 3 }, '<+0.6s')
+    tL.from('.star', { opacity: 0, scale: 0.5, ease: "elastic.out", duration: 3 }, '<+0.8s')
     tL.fromTo('.tag', { 
         clipPath: 'polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)' 
     }, { 
         clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', 
         duration: 0.8, 
         ease: "power4.inOut",
-        stagger: 0.1
+        stagger: 0.2
     },'<+1s')
 
     return tL
