@@ -11,7 +11,7 @@
                     <div class="uppercase nature overflow-hidden">Nature's soft touch</div>
                 </div>
                 <div class="text-4xl text-end fuzz">fuzz</div>
-                <Tag text="#ffbe98" class="tag absolute top-12 -left-5 -rotate-6"/>
+                <Tag text="#ffbe98" class="tag absolute top-12 -left-5 -rotate-6 "/>
                 <Tag text="peach" class="tag absolute bottom-[4rem] right-[7rem] rotate-6"/>
             </div>
         </div>
@@ -46,19 +46,22 @@ onMounted(async () =>{
     canvas.value.style="width:100%; height:100%;"
     loaded.value = true
     animateEnter()
-    
+})
+
+onBeforeUnmount(() => {
+    animateExit()
 })
 
 const animateEnter = () => {
     SplitType.create('.peach', 
     {
-        types: 'char', 
-        charClass: 'char--wrapper'
+        types: 'word, char', 
+        charClass: 'peach--wrapper'
     })
     SplitType.create('.fuzz', 
     {
-        types: 'char', 
-        charClass: 'char--wrapper'
+        types: 'word, char', 
+        charClass: 'fuzz--wrapper'
     })
     SplitType.create('.color', 
     {
@@ -71,38 +74,106 @@ const animateEnter = () => {
         wordClass: 'nature-char--wrapper'
     })
     
-    document.querySelectorAll('.char--wrapper')
-        .forEach(function(line){
+    let index = 0;
+    document.querySelectorAll('.peach--wrapper')
+        .forEach(function(item){
             var wrapperDiv = document.createElement('div');
-            wrapperDiv.classList.add('char')
+            wrapperDiv.classList.add('peach-char')
             wrapperDiv.classList.add('text-4xl')
-            wrapperDiv.innerHTML = line.innerHTML
-            line.innerHTML = ""
-            line.appendChild(wrapperDiv)
+            wrapperDiv.classList.add('origin-bottom')
+            wrapperDiv.setAttribute('data-index', index)
+            wrapperDiv.setAttribute('data-text', item.innerHTML)
+            wrapperDiv.innerHTML = item.innerHTML
+            item.innerHTML = ""
+            item.appendChild(wrapperDiv)
+
+            index++;
         })
 
-    gsap.timeline({
+    index = 0
+    document.querySelectorAll('.fuzz--wrapper')
+        .forEach(function(item){
+            var wrapperDiv = document.createElement('div');
+            wrapperDiv.classList.add('fuzz-char')
+            wrapperDiv.classList.add('text-4xl')
+            wrapperDiv.classList.add('origin-bottom')
+            wrapperDiv.setAttribute('data-index', index)
+            wrapperDiv.setAttribute('data-text', item.innerHTML)
+            wrapperDiv.innerHTML = item.innerHTML
+            item.innerHTML = ""
+            item.appendChild(wrapperDiv)
+
+            index++;
+        })
+
+    var tL = gsap.timeline({
         defaults: {
-            duration: 2,
-            ease: "bounce.out"
+            duration: 1.5,
+            ease: "power4.out"
         },
     })
-    .from('.char', { scaleY: 0, opacity: 0, stagger: 0.1, delay: 1.5 })
-    .from('.color-char--wrapper', { opacity: 0, stagger: 0.1, duration: 1 }, 3.5)
-    .from('.nature-char--wrapper', { opacity: 0, stagger: 0.1, duration: 1 }, 4.5)
-    .fromTo('.tag', { 
+    
+    let duration = 2
+    let delay = 1.5
+    let stagger = 0.05
+    let yPercent = 5
+    let yPercentIncrement = 5
+    document.querySelectorAll('.peach-char')
+        .forEach(function(item){
+            tL.from(item, { rotateX: '90deg', opacity: 0, yPercent: yPercent, duration: duration, delay: delay}, 0)
+            delay += item.dataset.index * stagger
+            yPercent += item.dataset.index * yPercentIncrement
+        })
+
+    delay = 2
+    yPercent = 5
+    document.querySelectorAll('.fuzz-char')
+        .forEach(function(item){
+            tL.from(item, { rotateX: '90deg', opacity: 0, yPercent: yPercent, duration: duration, delay: delay}, 0)
+            delay += item.dataset.index * stagger
+            yPercent += item.dataset.index * yPercentIncrement
+        })
+    
+    tL.from('.color-char--wrapper', { opacity: 0, stagger: 0.1, duration: 1 }, delay + 1)
+    tL.from('.nature-char--wrapper', { opacity: 0, stagger: 0.1, duration: 1 }, '<+1s')
+    tL.from('.star', { opacity: 0, scale: 0.5, ease: "elastic.out", duration: 3 }, '+=0.6s')
+    tL.fromTo('.tag', { 
         clipPath: 'polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)' 
     }, { 
         clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', 
-        duration: 0.6, 
-        ease: "power3.inOut",
+        duration: 0.8, 
+        ease: "power4.inOut",
         stagger: 0.5
-    }, '<+0.6s')
-    .from('.star', { opacity: 0, scale: 0.5, ease: "elastic.out", duration: 3 }, '+=0.6s')
-    .from('.project', { opacity: 0, duration: 1,  ease: "power4.out" })
+    },'<+1s')
+    tL.from('.project', { opacity: 0, duration: 1,  ease: "power4.out" })
+
+    return tL
+}
+
+const animateExit = () => {
+    var tL = gsap.timeline({
+        defaults: {
+            duration: 1.5,
+            ease: "elastic.out"
+        },
+    })
+    tL.to('.star', { opacity: 0, scale: 0, ease: "elastic.out" })
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+.peach-char {
+    &[data-text="e"]{
+        animation: swing 10s infinite 4s;
+        animation-fill-mode: both;
+    }
+}
 
+@keyframes swing { 
+    20% { transform: rotate(10deg); } 
+    40% { transform: rotate(-10deg); } 
+    60% { transform: rotate(5deg); } 
+    80% { transform: rotate(-5deg); } 
+    100% { transform: rotate(0deg); } 
+}
 </style>
