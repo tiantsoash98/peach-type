@@ -6,10 +6,7 @@
 
 <script setup>
 const tag = ref(null)
-import gsap from 'gsap';
 import { Draggable } from 'gsap/Draggable';
-
-gsap.registerPlugin(Draggable) 
 
 const props = defineProps({
     text: String,

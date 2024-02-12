@@ -25,7 +25,10 @@
 // https://stackoverflow.com/questions/76634078/how-to-use-spline3d-with-vue-or-nuxt
 import { Application } from '@splinetool/runtime';
 import { gsap } from "gsap";
+import { Draggable } from 'gsap/Draggable';
 import SplitType from 'split-type';
+
+gsap.registerPlugin(Draggable) 
 
 // template ref
 const canvas = ref(null)
