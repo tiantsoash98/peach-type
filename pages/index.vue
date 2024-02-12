@@ -1,6 +1,6 @@
 <template>
     <div class="h-dvh" id="draggable">
-        <Tag text="Welcome" containerId="draggable" class="tag absolute top-10 left-[10%] -rotate-[5deg] text-xl"/>
+        
         <div class="h-full w-full max-w-4xl mx-auto flex flex-col justify-center">
             <div class="w-full relative">
                 <div class="star absolute z-10 w-[20rem] h-[20rem] top-[7%] right-0 flex justify-center items-center translate-x-1/2">
@@ -12,8 +12,8 @@
                     <div class="uppercase nature overflow-hidden">Nature's soft touch</div>
                 </div>
                 <div class="text-4xl text-end fuzz" id="fuzz">fuzz</div>
-                <Tag text="#ffbe98" containerId="draggable" class="tag absolute top-12 -left-5 -rotate-6 "/>
-                <Tag text="peach" containerId="draggable" class="tag absolute bottom-[4rem] right-[7rem] rotate-6"/>
+                <Tag text="#ffbe98" containerId="page" class="tag absolute top-12 -left-5 -rotate-6 "/>
+                <Tag text="peach" containerId="page" class="tag absolute bottom-[4rem] right-[7rem] rotate-6"/>
             </div>
         </div>
         
