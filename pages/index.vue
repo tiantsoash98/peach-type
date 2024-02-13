@@ -38,7 +38,7 @@ const magnetic = useMagnetic()
 // spline state
 const state = reactive({
     spline: {
-        scene: "https://prod.spline.design/tVOhyNDmtFn-BYXr/scene.splinecode",
+        scene: "https://prod.spline.design/m9bbMPb5h0smqj4C/scene.splinecode",
         app: null,
         isLoaded: false,
     },
